@@ -884,9 +884,6 @@ pacman -Sy --noconfirm linux-lts linux-lts-headers linux-firmware
 # 📦 grub-btrfs — интеграция снапшотов BTRFS в GRUB (~0.2 МБ)
 # 📦 os-prober — обнаружение других ОС на диске (~0.1 МБ)
 pacman -Sy --noconfirm grub grub-btrfs os-prober
-# 📦 dracut — генератор initramfs (замена mkinitcpio) (~1 МБ)
-# ✅ ОБЯЗАТЕЛЬНО: Установка dracut для создания initramfs.
-pacman -Sy --noconfirm dracut
 #------------------------------------------------------------------------------
 # ШАГ: ОТКЛЮЧЕНИЕ ХУКОВ MKINITCPIO
 #------------------------------------------------------------------------------
