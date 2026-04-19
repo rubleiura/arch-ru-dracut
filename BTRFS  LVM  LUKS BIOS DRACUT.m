@@ -931,9 +931,6 @@ pacman -Sy --noconfirm linux-lts linux-lts-headers linux-firmware
 # 📦 os-prober — обнаружение других ОС на диске (~0.1 МБ)
 # ⚠️ В BIOS версии НЕ нужен efibootmgr!
 pacman -Sy --noconfirm grub grub-btrfs os-prober
-# 📦 dracut — генератор initramfs (замена mkinitcpio) (~1 МБ)
-# ✅ ОБЯЗАТЕЛЬНО: Установка dracut для создания initramfs.
-pacman -Sy --noconfirm dracut
 #------------------------------------------------------------------------------
 # ШАГ: ОТКЛЮЧЕНИЕ ХУКОВ MKINITCPIO
 #------------------------------------------------------------------------------
