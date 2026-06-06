@@ -974,6 +974,17 @@ ROOT_UUID=$(blkid -s UUID -o value /dev/sda2)
 sed -i 's|^GRUB_CMDLINE_LINUX_DEFAULT=.*|GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash rd.shell=0 rd.emergency=halt"|' /etc/default/grub
 # 📋 Настройка GRUB_CMDLINE_LINUX
 sed -i "s|^[[:space:]]*#\?GRUB_CMDLINE_LINUX=.*|GRUB_CMDLINE_LINUX=\"root=UUID=${ROOT_UUID} resume=UUID=${SWAP_UUID}\"|" /etc/default/grub
+# 📋 Добавление пунктов меню включение и перезагрузка системы 
+tee -a /etc/grub.d/40_custom << 'EOF'
+
+menuentry "Выключение системы" {
+    halt
+}
+
+menuentry "Перезагрузка системы" {
+    reboot
+}
+EOF
 # #------------------------------------------------------------------------------
 # ШАГ 5: НАСТРОЙКА GRUB-BTRFS И ГЕНЕРАЦИЯ
 # #------------------------------------------------------------------------------
