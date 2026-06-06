@@ -1000,6 +1000,17 @@ sed -i "s|^[[:space:]]*#\?GRUB_CMDLINE_LINUX=.*|GRUB_CMDLINE_LINUX=\"rd.luks.uui
 # 📋 Включение поддержки шифрованного диска в GRUB
 sed -i 's|^# GRUB_ENABLE_CRYPTODISK=.|GRUB_ENABLE_CRYPTODISK=y|' /etc/default/grub
 sed -i 's|^# GRUB_DISABLE_RECOVERY=.|GRUB_DISABLE_RECOVERY=true|' /etc/default/grub
+# 📋 Добавление пунктов меню включение и перезагрузка системы 
+tee -a /etc/grub.d/40_custom << 'EOF'
+
+menuentry "Выключение системы" {
+    halt
+}
+
+menuentry "Перезагрузка системы" {
+    reboot
+}
+EOF
 #------------------------------------------------------------------------------
 # ШАГ 5: НАСТРОЙКА GRUB-BTRFS И СЛУЖБ
 #------------------------------------------------------------------------------
